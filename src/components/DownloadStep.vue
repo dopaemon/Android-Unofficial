@@ -68,7 +68,7 @@
                 <v-icon slot="icon" color="green darken-3">mdi-check</v-icon>
                 <div class="my-4">
                     <span class="text-body-1 green--text text--darken-3"
-                        >Downloaded {{ $root.$data.OS_NAME }}
+                        >Downloaded
                         {{ $root.$data.release.version }}-{{
                             $root.$data.release.variant
                         }}</span

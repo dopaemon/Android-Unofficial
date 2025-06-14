@@ -7,7 +7,7 @@
                 <p>
                     Congratulations! Your
                     {{ getDeviceName($root.$data.product) }} is now running
-                    {{ $root.$data.OS_NAME }} {{ $root.$data.release.version }}.
+                    {{ $root.$data.release.version }}.
                 </p>
                 <p>
                     If you like {{ $root.$data.OS_NAME }}, please consider

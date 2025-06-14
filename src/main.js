@@ -89,5 +89,9 @@ new Vue({
         installType: null,
         ...Config,
     },
+    errorCaptured(err, instance, info) {
+        console.error("Vue error captured:", err, info);
+        return false;
+    },
     render: (h) => h(App),
 }).$mount("#app");

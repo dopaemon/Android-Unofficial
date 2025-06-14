@@ -145,19 +145,26 @@ export default {
         error: null,
     }),
 
-    watch: {
-        active: async function (newState) {
+    watch: {        active: async function (newState) {
             if (newState) {
                 this.saEvent("step_download");
 
                 if (this.releaseIndex === undefined) {
-                    let indexResp = await fetch("https://raw.githubusercontent.com/dopaemon/Android-Unofficial/refs/heads/master/release.json");
-                    this.releaseIndex = await indexResp.json();
+                    try {
+                        let indexResp = await fetch("https://raw.githubusercontent.com/dopaemon/Android-Unofficial/refs/heads/master/release.json");
+                        this.releaseIndex = await indexResp.json();
+                    } catch (error) {
+                        console.error("Failed to fetch release index:", error);
+                        this.error = "Failed to load release information";
+                        return;
+                    }
                 }
 
-                this.latestReleases = this.releaseIndex.latest[
-                    this.$root.$data.product
-                ];
+                if (this.releaseIndex && this.releaseIndex.latest && this.$root.$data.product) {
+                    this.latestReleases = this.releaseIndex.latest[this.$root.$data.product];
+                } else {
+                    this.latestReleases = undefined;
+                }
             }
         },
     },
@@ -165,9 +172,12 @@ export default {
     methods: {
         async errorRetry() {
             await this.download(this.$root.$data.release);
-        },
+        },        async download(release) {
+            if (!release || !release.url) {
+                this.error = "Invalid release data";
+                return;
+            }
 
-        async download(release) {
             this.$root.$data.release = release;
             this.downloadProgress = 0;
             this.downloading = true;

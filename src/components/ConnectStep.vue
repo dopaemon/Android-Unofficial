@@ -86,16 +86,13 @@ export default {
 
         async errorRetry() {
             await this.connect();
-        },
-
-        async connect() {
+        },        async connect() {
             this.connecting = true;
 
             try {
                 await this.device.connect();
-                this.$root.$data.product = await this.device.getVariable(
-                    "product"
-                );
+                const productValue = await this.device.getVariable("product");
+                this.$root.$data.product = productValue;
                 this.error = null;
 
                 if (this.firstConnect) {

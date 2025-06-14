@@ -110,8 +110,8 @@
 }
 </style>
 
-<script lang="ts">
-import fastboot from "android-fastboot/src/fastboot.ts";
+<script>
+import * as fastboot from "android-fastboot";
 
 import { getDeviceName } from "../core/devices";
 

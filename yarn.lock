@@ -2045,7 +2045,7 @@
 
 "android-fastboot@git+https://github.com/dopaemon/fastboot.js.git":
   version "1.1.3"
-  resolved "git+https://github.com/dopaemon/fastboot.js.git#06fa3a74f349b5964026243c29a109c6feb6666f"
+  resolved "git+https://github.com/dopaemon/fastboot.js.git#6da44904018a2652f6b3348d1cdf49477b13a391"
   dependencies:
     "@zip.js/zip.js" "2.2.27"
 

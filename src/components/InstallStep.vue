@@ -5,7 +5,7 @@
 
             <div class="text-body-1">
                 <p>
-                    This will install {{ $root.$data.OS_NAME }}
+                    This will install
                     {{ $root.$data.release.version
                     }}{{
                         $root.$data.RELEASE_VARIANTS[

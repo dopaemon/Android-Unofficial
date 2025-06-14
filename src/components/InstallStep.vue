@@ -111,7 +111,8 @@
 </style>
 
 <script>
-import * as fastboot from "android-fastboot";
+import fastboot from "android-fastboot/src/fastboot.ts";
+
 import { getDeviceName } from "../core/devices";
 
 fastboot.configureZip({

@@ -12,9 +12,9 @@ jobs:
         with:
           node-version: '16'
       - name: Install Dependencies
-        run: npm install
+        run: yarn add --dev @vue/cli-service
       - name: Build App
-        run: npm run build -- --base=/Android-Unofficial/
+        run: yarn build
       - name: Archive artifact
         shell: sh
         run: |

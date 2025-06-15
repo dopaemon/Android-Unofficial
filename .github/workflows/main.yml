@@ -14,7 +14,7 @@ jobs:
       - name: Install Dependencies
         run: yarn add --dev @vue/cli-service
       - name: Build App
-        run: VUE_APP_PROD_URL=/Android-Unofficial/ NODE_ENV=production yarn build
+        run: npm run build -- --base=/Android-Unofficial/
       - name: Archive artifact
         shell: sh
         run: |
